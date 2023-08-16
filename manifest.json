@@ -1,6 +1,6 @@
 {
-  "short_name": "Ballioz Dev",
-  "name": "Başar Ballıöz - Frontend Developer",
+  "short_name": "react-vscode-portfolio",
+  "name": "Başar Ballıöz - Portfolio",
   "icons": [
     {
       "src": "favicon.ico",
