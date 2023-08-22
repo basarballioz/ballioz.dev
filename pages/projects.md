@@ -5,4 +5,4 @@
 - lorem ipsum
 - lorem ipsum
 
-<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=basarballioz&" alt="basarballioz" />
+<img style="width: 100%;" align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=basarballioz&" alt="basarballioz" />
