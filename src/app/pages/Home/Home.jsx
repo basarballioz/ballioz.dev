@@ -48,9 +48,8 @@ function Home({ setSelectedIndex }) {
                   target="_blank"
                   href={link.href}
                   rel="noopener noreferrer"
-                  style={{ textDecoration: "none", color: "#fff" }}
                 >
-                  <IconButton size="large" color="inherit">
+                  <IconButton size="large" color="#00">
                     {link.icon}
                   </IconButton>
                 </a>
