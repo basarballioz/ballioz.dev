@@ -14,7 +14,7 @@ import AppTree from "./AppTree";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 import AppButtons from "./AppButtons";
-import PageBuilder from "../components/PageBuilder";
+import PageBuilder from "../components/PageBuilder/PageBuilder";
 import Home from "../pages/Home/Home";
 import { pages } from "../pages/Home/pages";
 import { isBrowser } from "react-device-detect";
