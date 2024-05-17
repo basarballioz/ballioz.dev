@@ -38,7 +38,7 @@ function Home({ setSelectedIndex }) {
         >
           <Typography variant="h5">Başar Ballıöz</Typography>
           <Typography variant="subtitle1" gutterBottom>
-            Frontend Developer
+            Mid. Frontend Developer
           </Typography>
           <Stack direction="row">
             {links.map((link) => (
