@@ -156,7 +156,7 @@ export default function App() {
                 }}
               >
                 <Routes>
-                  <Route path="/" element={<Home setSelectedIndex={setSelectedIndex} />} />
+                  <Route path="/" element={<Navigate to="/overview" replace />} />
                   {pages.map(({ index, name, route }) => (
                     <Route
                       key={index}
@@ -164,7 +164,7 @@ export default function App() {
                       element={<PageBuilder path={`./pages/${name}`} />}
                     />
                   ))}
-                  <Route path="*" element={<Navigate to="/" replace />} />
+                  <Route path="*" element={<Navigate to="/overview" replace />} />
                 </Routes>
               </Grid>
             </Grid>
