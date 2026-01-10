@@ -177,18 +177,21 @@ function MarkdownBlockquote(props) {
 }
 
 function MarkdownParagraph(props) {
+  const children = Array.isArray(props.children) ? props.children : [props.children];
   const keyToCheck = "$$typeof";
-  const exists = props.children.some(
-    (obj) => obj.hasOwnProperty(keyToCheck)
+  const exists = children.some(
+    (obj) => obj && typeof obj === "object" && obj.hasOwnProperty(keyToCheck)
   );
 
   const isWarning =
-    typeof props.children[0] === "string" &&
-    props.children[0].includes(":::") &&
-    props.children.slice(-1)[0].includes(":::");
+    children.length > 0 &&
+    typeof children[0] === "string" &&
+    children[0].includes(":::") &&
+    typeof children[children.length - 1] === "string" &&
+    children[children.length - 1].includes(":::");
 
   if (isWarning) {
-    const severity = props.children[0].split(" ")[1];
+    const severity = children[0].split(" ")[1];
     return (
       <Box
         sx={{
@@ -199,7 +202,7 @@ function MarkdownParagraph(props) {
           marginInlineEnd: "0px",
         }}
       >
-        <Alert severity={severity}>{props.children.slice(2, -1)}</Alert>
+        <Alert severity={severity}>{children.slice(2, -1)}</Alert>
       </Box>
     );
   }
