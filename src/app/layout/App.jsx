@@ -155,7 +155,7 @@ export default function App() {
                 }}
               >
                 <Routes>
-                  <Route path="/" element={<Navigate to="/overview" replace />} />
+                  <Route path="/" element={<Navigate to="/profile" replace />} />
                   {pages.map(({ index, name, route }) => (
                     <Route
                       key={index}
@@ -163,7 +163,7 @@ export default function App() {
                       element={<PageBuilder path={`./pages/${name}`} />}
                     />
                   ))}
-                  <Route path="*" element={<Navigate to="/overview" replace />} />
+                  <Route path="*" element={<Navigate to="/profile" replace />} />
                 </Routes>
               </Grid>
             </Grid>
