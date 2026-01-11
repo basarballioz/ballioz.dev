@@ -1,19 +1,6 @@
 import {
-  Alert,
-  Box,
-  Chip,
-  Container,
-  Divider,
-  Link,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableFooter,
-  TableHead,
-  TableRow,
-  Typography,
+  Alert, Box, Chip, Container, Divider, Link, Paper, Table,
+  TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -49,39 +36,27 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function MarkdownLink(props) {
-  return (
-    <Link href={props.href} target="_blank" underline="hover">
+const MarkdownLink = (props) => (
+  <Link href={props.href} target="_blank" underline="hover">
+    {props.children}
+  </Link>
+);
+
+const MarkdownTable = (props) => (
+  <TableContainer component={Paper}>
+    <Table size="small" aria-label="a dense table">
       {props.children}
-    </Link>
-  );
-}
+    </Table>
+  </TableContainer>
+);
 
-function MarkdownTable(props) {
-  return (
-    <TableContainer component={Paper}>
-      <Table size="small" aria-label="a dense table">
-        {props.children}
-      </Table>
-    </TableContainer>
-  );
-}
+const MarkdownTableCell = (props) => (
+  <StyledTableCell sx={props.style?.textAlign === "right" ? { textAlign: "right" } : {}}>
+    {props.children}
+  </StyledTableCell>
+);
 
-function MarkdownTableCell(props) {
-  if (props.style && props.style.textAlign === "right") {
-    return (
-      <StyledTableCell sx={{ textAlign: "right" }}>
-        {props.children}
-      </StyledTableCell>
-    );
-  } else {
-    return <StyledTableCell>{props.children}</StyledTableCell>;
-  }
-}
-
-function MarkdownTableRow(props) {
-  return <StyledTableRow>{props.children}</StyledTableRow>;
-}
+const MarkdownTableRow = (props) => <StyledTableRow>{props.children}</StyledTableRow>;
 
 function MarkdownCode(props) {
   const theme = useTheme();
@@ -112,121 +87,66 @@ function MarkdownCode(props) {
   }
 }
 
-function MarkdownDivider() {
+const MarkdownDivider = () => {
   const theme = useTheme();
-  const isDarkMode = theme.palette.mode === "dark";
-  return (
-    <>
-      {isDarkMode ? (
-        <Divider sx={{ bgcolor: "#393939" }} />
-      ) : (
-        <Divider sx={{ bgcolor: "#eeeeee" }} />
-      )}
-    </>
-  );
-}
+  const isDark = theme.palette.mode === "dark";
+  return <Divider sx={{ bgcolor: isDark ? "#393939" : "#eeeeee" }} />;
+};
 
-function MarkdownH1(props) {
-  return (
-    <>
-      <Typography
-        variant="h1"
-        sx={{
-          fontSize: "2em",
-          display: "block",
-          marginBlockStart: "0.67em",
-          marginBlockEnd: "0.3em",
-          fontWeight: "bold",
-          lineHeight: 1.25,
-        }}
-      >
-        {props.children}
-      </Typography>
-      <MarkdownDivider />
-    </>
-  );
-}
+const MarkdownH1 = (props) => (
+  <>
+    <Typography variant="h1" sx={{ fontSize: "2em", display: "block", marginBlockStart: "0.67em", marginBlockEnd: "0.3em", fontWeight: "bold", lineHeight: 1.25 }}>
+      {props.children}
+    </Typography>
+    <MarkdownDivider />
+  </>
+);
 
-function MarkdownH2(props) {
-  return (
-    <>
-      <Typography
-        variant="h2"
-        sx={{
-          fontSize: "1.5em",
-          display: "block",
-          marginBlockStart: "0.83em",
-          marginBlockEnd: "0.3em",
-          fontWeight: "bold",
-          lineHeight: 1.25,
-        }}
-      >
-        {props.children}
-      </Typography>
-      <MarkdownDivider />
-    </>
-  );
-}
+const MarkdownH2 = (props) => (
+  <>
+    <Typography variant="h2" sx={{ fontSize: "1.5em", display: "block", marginBlockStart: "0.83em", marginBlockEnd: "0.3em", fontWeight: "bold", lineHeight: 1.25 }}>
+      {props.children}
+    </Typography>
+    <MarkdownDivider />
+  </>
+);
 
-function MarkdownBlockquote(props) {
-  return (
-    <Box sx={{ borderLeft: 3, borderColor: "#eeeeee" }}>
-      <blockquote>{props.children}</blockquote>
-    </Box>
-  );
-}
+const MarkdownBlockquote = (props) => (
+  <Box sx={{ borderLeft: 3, borderColor: "#eeeeee" }}>
+    <blockquote>{props.children}</blockquote>
+  </Box>
+);
 
-function MarkdownParagraph(props) {
+const MarkdownParagraph = (props) => {
   const children = Array.isArray(props.children) ? props.children : [props.children];
-  const keyToCheck = "$$typeof";
-  const exists = children.some(
-    (obj) => obj && typeof obj === "object" && obj.hasOwnProperty(keyToCheck)
-  );
+  const hasReactElement = children.some((obj) => obj && typeof obj === "object" && obj.hasOwnProperty("$$typeof"));
 
-  const isWarning =
-    children.length > 0 &&
-    typeof children[0] === "string" &&
-    children[0].includes(":::") &&
-    typeof children[children.length - 1] === "string" &&
-    children[children.length - 1].includes(":::");
+  const isWarning = children.length > 0 &&
+    typeof children[0] === "string" && children[0].includes(":::") &&
+    typeof children[children.length - 1] === "string" && children[children.length - 1].includes(":::");
 
   if (isWarning) {
     const severity = children[0].split(" ")[1];
     return (
-      <Box
-        sx={{
-          display: "block",
-          marginBlockStart: "1em",
-          marginBlockEnd: "1em",
-          marginInlineStart: "0px",
-          marginInlineEnd: "0px",
-        }}
-      >
+      <Box sx={{ display: "block", marginBlockStart: "1em", marginBlockEnd: "1em", marginInlineStart: "0px", marginInlineEnd: "0px" }}>
         <Alert severity={severity}>{children.slice(2, -1)}</Alert>
       </Box>
     );
   }
-  if (exists) {
+  if (hasReactElement) {
     return (
-      <Box
-        sx={{
-          display: "block",
-          marginBlockStart: "1em",
-          marginBlockEnd: "1em",
-          marginInlineStart: "0px",
-          marginInlineEnd: "0px",
-        }}
-      >
+      <Box sx={{ display: "block", marginBlockStart: "1em", marginBlockEnd: "1em", marginInlineStart: "0px", marginInlineEnd: "0px" }}>
         {props.children}
       </Box>
     );
   }
   return <p>{props.children}</p>;
-}
+};
 
 function PageBuilder({ path }) {
   const [content, setContent] = useState("");
   const { pathname } = useLocation();
+
   useEffect(() => {
     fetch(path)
       .then((res) => res.text())
@@ -234,9 +154,8 @@ function PageBuilder({ path }) {
   }, [path]);
 
   useEffect(() => {
-    let title = pathname.substring(1, pathname.length);
-    title = title[0].toUpperCase() + title.substring(1);
-    document.title = `Başar Ballıöz | ${title}`;
+    const title = pathname.substring(1).charAt(0).toUpperCase() + pathname.substring(2);
+    document.title = `${process.env.REACT_APP_TITLE_NAME} | ${title}`;
   }, [pathname]);
 
   return (

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Link,
@@ -8,18 +7,10 @@ import {
 } from "@mui/material";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import {
-  VscFiles,
-  VscHome,
-} from "react-icons/vsc";
+import { VscFiles, VscHome } from "react-icons/vsc";
 import { links } from "../pages/Home/links";
 
-export default function Sidebar({
-  expanded,
-  setExpanded,
-  darkMode,
-  handleThemeChange,
-}) {
+export default function Sidebar({ expanded, setExpanded, darkMode, handleThemeChange }) {
   return (
     <Box
       sx={{
@@ -33,45 +24,28 @@ export default function Sidebar({
       square
       elevation={0}
     >
-      <Box
-        sx={{ flexGrow: 0 }}
-        display="flex"
-        justifyContent="center"
-        flexDirection="column"
-      >
+      <Box sx={{ flexGrow: 0 }} display="flex" justifyContent="center" flexDirection="column">
         <Tooltip title="Return To Homepage" arrow placement="right">
-          <Link
-            href={"/"}
-            underline="none"
-            color="inherit"
-            sx={{ WebkitTapHighlightColor: "rgba(0,0,0,0)" }}
-          >
+          <Link href="/" underline="none" color="inherit" sx={{ WebkitTapHighlightColor: "rgba(0,0,0,0)" }}>
             <Box
               sx={{
                 flexGrow: 0,
                 cursor: "pointer",
                 color: "#858585",
                 fontSize: 30,
-                "&:hover": {
-                  color: "white",
-                },
+                mt: 0.7,
+                "&:hover": { color: "white" },
               }}
               display="flex"
               justifyContent="center"
             >
-              <Box mt={0.7}>
-                <VscHome />
-              </Box>
+              <VscHome />
             </Box>
           </Link>
         </Tooltip>
         <Box
           sx={{
-            borderLeft: expanded
-              ? "solid 0.12em white"
-              : darkMode
-                ? "solid 0.12em #333333"
-                : "solid 0.12em #2c2c2c",
+            borderLeft: expanded ? "solid 0.12em white" : `solid 0.12em ${darkMode ? "#333333" : "#2c2c2c"}`,
             cursor: "pointer",
             WebkitTapHighlightColor: "rgba(0,0,0,0)",
           }}
@@ -84,9 +58,7 @@ export default function Sidebar({
               color: expanded ? "white" : "#858585",
               fontSize: 24,
               outline: "none",
-              "&:hover": {
-                color: "white",
-              },
+              "&:hover": { color: "white" },
             }}
             display="flex"
             justifyContent="center"
@@ -110,58 +82,38 @@ export default function Sidebar({
                 sx={{
                   flexGrow: 0,
                   m: 0.5,
+                  mt: 1.2,
                   color: "#858585",
                   fontSize: 24,
-                  "&:hover": {
-                    color: "white",
-                  },
+                  "&:hover": { color: "white" },
                   cursor: "pointer",
                 }}
                 display="flex"
                 justifyContent="center"
               >
-                <Box mt={0.7}>{link.icon}</Box>
+                {link.icon}
               </Box>
             </Link>
           </Tooltip>
         ))}
       </Box>
 
-      <Box
-        sx={{ flexGrow: 0, pb: 0.5 }}
-        display="flex"
-        justifyContent="center"
-        flexDirection="column"
-      >
-        <Tooltip
-          title={darkMode ? "Lights ON" : "Lights OFF"}
-          placement="right"
-          arrow
-        >
+      <Box sx={{ flexGrow: 0, pb: 0.5 }} display="flex" justifyContent="center">
+        <Tooltip title={darkMode ? "Lights ON" : "Lights OFF"} placement="right" arrow>
           <Box
             sx={{
               flexGrow: 0,
               fontSize: 24,
               color: "#858585",
               cursor: "pointer",
-              "&:hover": {
-                color: "white",
-              },
+              "&:hover": { color: "white" },
               WebkitTapHighlightColor: "rgba(0,0,0,0)",
             }}
             display="flex"
             justifyContent="center"
             onClick={handleThemeChange}
           >
-            {!darkMode ? (
-              <Box>
-                <DarkModeOutlinedIcon />
-              </Box>
-            ) : (
-              <Box>
-                <LightModeOutlinedIcon />
-              </Box>
-            )}
+            {darkMode ? <LightModeOutlinedIcon /> : <DarkModeOutlinedIcon />}
           </Box>
         </Tooltip>
       </Box>

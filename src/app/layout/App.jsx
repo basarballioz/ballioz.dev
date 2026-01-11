@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Container,
   createTheme,
@@ -16,7 +16,6 @@ import Sidebar from "./Sidebar";
 import AppButtons from "./AppButtons";
 import PageBuilder from "../components/PageBuilder/PageBuilder";
 import { pages } from "../pages/Home/pages";
-import { isBrowser } from "react-device-detect";
 
 function initVisiblePageIndexs(pages) {
   const tabs = [];
@@ -27,9 +26,7 @@ function initVisiblePageIndexs(pages) {
   return tabs;
 }
 
-function isDesktop() {
-  return window.innerWidth >= 768;
-}
+const isDesktop = () => window.innerWidth >= 768;
 
 export default function App() {
   const navigate = useNavigate();
@@ -39,47 +36,34 @@ export default function App() {
   const [visiblePageIndexs, setVisiblePageIndexs] = useState(initVisiblePageIndexs(pages));
   const [darkMode, setDarkMode] = useState(false);
   const [visiblePages, setVisiblePages] = useState(pages.filter((x) => x.visible));
-  const paletteType = darkMode ? "dark" : "light";
+  const isDark = darkMode;
   const theme = createTheme({
     palette: {
-      mode: paletteType,
-      background: {
-        default: paletteType === "light" ? "#FFFFFF" : "#1e1e1e",
-      },
+      mode: isDark ? "dark" : "light",
+      background: { default: isDark ? "#1e1e1e" : "#FFFFFF" },
     },
     components: {
       MuiCssBaseline: {
-        styleOverrides: {
-          body: paletteType === "dark" ? darkScrollbar() : null,
-        },
+        styleOverrides: { body: isDark ? darkScrollbar() : null },
       },
       MuiDivider: {
-        styleOverrides: {
-          root: {
-            borderColor: "rgba(255, 255, 255, 0.12)",
-          },
-        },
+        styleOverrides: { root: { borderColor: "rgba(255, 255, 255, 0.12)" } },
       },
     },
   });
 
-  function handleThemeChange() {
+  const handleThemeChange = () => {
     setDarkMode(!darkMode);
     localStorage.setItem("theme", darkMode ? "light" : "dark");
-  }
+  };
 
   useEffect(() => {
     const currentTheme = localStorage.getItem("theme");
-    if (!currentTheme) setDarkMode(true);
-    else setDarkMode(currentTheme === "dark");
+    setDarkMode(currentTheme ? currentTheme === "dark" : true);
   }, []);
 
   useEffect(() => {
-    const handleResize = () => {
-      const shouldBeExpanded = isDesktop();
-      setExpanded(shouldBeExpanded);
-    };
-
+    const handleResize = () => setExpanded(isDesktop());
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -126,22 +110,13 @@ export default function App() {
               />
             </Grid>
             {expanded && (
-              <Grid
-                item
-                sx={{
-                  backgroundColor: darkMode ? "#252527" : "#f3f3f3",
-                  width: 220,
-                }}
-              >
+              <Grid item sx={{ backgroundColor: isDark ? "#252527" : "#f3f3f3", width: 220 }}>
                 <Stack sx={{ mt: 1 }}>
-                  <Typography variant="caption" color="text.secondary" sx={{ ml: 1.4 }}>
-                    EXPLORER
-                  </Typography>
+                  <Typography variant="caption" color="text.secondary" sx={{ ml: 1.4 }}>EXPLORER</Typography>
                   <AppTree
                     pages={pages.filter((x) => x.visible)}
                     selectedIndex={selectedIndex}
                     setSelectedIndex={setSelectedIndex}
-                    currentComponent={currentComponent}
                     setCurrentComponent={setCurrentComponent}
                     visiblePageIndexs={visiblePageIndexs}
                     setVisiblePageIndexs={setVisiblePageIndexs}
@@ -182,18 +157,11 @@ export default function App() {
               </Grid>
             </Grid>
           </Grid>
-          <Grid
-            sx={{
-              position: "fixed",
-              bottom: 0,
-              width: "100%"
-            }}
-            item lg={12} md={12} sm={12} xs={12}
-          >
+          <Grid sx={{ position: "fixed", bottom: 0, width: "100%" }} item lg={12} md={12} sm={12} xs={12}>
             <Footer />
           </Grid>
         </Grid>
       </Container>
-    </ThemeProvider >
+    </ThemeProvider>
   );
 }

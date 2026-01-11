@@ -1,154 +1,115 @@
-import { Button, Box, Paper } from "@mui/material";
-import React from "react";
+import { Button, Box, Paper, Container } from "@mui/material";
 import { VscMarkdown, VscChromeClose } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
-import { Container } from "@mui/system";
 
 export default function AppButtons({
   pages,
   selectedIndex,
   setSelectedIndex,
-  currentComponent,
   setCurrentComponent,
   visiblePageIndexs,
   setVisiblePageIndexs,
 }) {
   const navigate = useNavigate();
   const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
 
-  function renderButtonBgColor(index) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "#1e1e1e" : "#2d2d2d";
-    } else {
-      return selectedIndex === index ? "#ffffff" : "#ececec";
-    }
-  }
+  const getBgColor = (index) => {
+    if (isDark) return selectedIndex === index ? "#1e1e1e" : "#2d2d2d";
+    return selectedIndex === index ? "#ffffff" : "#ececec";
+  };
 
-  function renderButtonColor(index) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "white" : "#817d7a";
-    } else {
-      return selectedIndex === index ? "#524a5f" : "#716f74";
-    }
-  }
+  const getTextColor = (index) => {
+    if (isDark) return selectedIndex === index ? "white" : "#817d7a";
+    return selectedIndex === index ? "#524a5f" : "#716f74";
+  };
 
-  function renderCloseButtonBgColor(index) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "#1e1e1e" : "#2d2d2d";
-    } else {
-      return selectedIndex === index ? "#ffffff" : "#ececec";
-    }
-  }
+  const getCloseHoverBg = (index) => {
+    if (isDark) return "#333c43";
+    return selectedIndex === index ? "#e6e4e5" : "#dadada";
+  };
 
-  function renderCloseButtonColor(index) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "#white" : "#2d2d2d";
-    } else {
-      return selectedIndex === index ? "#72736d" : "#ececec";
-    }
-  }
+  const getCloseHoverColor = (index) => {
+    if (isDark) return selectedIndex === index ? "white" : "#817d7a";
+    return selectedIndex === index ? "#44434b" : "#92938e";
+  };
 
-  function renderCloseButtonHoverBgColor(index) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "#333c43" : "#333c43";
-    } else {
-      return selectedIndex === index ? "#e6e4e5" : "#dadada";
-    }
-  }
-
-  function renderCloseButtonHoverColor(index) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex !== index ? "#817d7a" : "#white";
-    } else {
-      return selectedIndex === index ? "#44434b" : "#92938e";
-    }
-  }
-
-  function renderPageButton(index, name, route) {
-    return (
-      <Box
-        key={index}
+  const renderPageButton = (index, name, route) => (
+    <Box
+      key={index}
+      sx={{
+        display: "inline-block",
+        borderRight: 1,
+        borderColor: isDark ? "#252525" : "#f3f3f3",
+      }}
+    >
+      <Button
+        disableRipple
+        disableElevation
+        disableFocusRipple
+        onClick={() => {
+          setSelectedIndex(index);
+          setCurrentComponent("button");
+          navigate(route);
+        }}
         sx={{
-          display: "inline-block",
-          borderRight: 1,
-          borderColor: theme.palette.mode === "dark" ? "#252525" : "#f3f3f3",
+          borderRadius: 0,
+          px: 2,
+          textTransform: "none",
+          backgroundColor: getBgColor(index),
+          color: getTextColor(index),
+          "&.MuiButtonBase-root:hover": {
+            bgcolor: getBgColor(index),
+          },
+          transition: "none",
+          pb: 0.2,
         }}
       >
-        <Button
-          key={index}
-          disableRipple
-          disableElevation
-          disableFocusRipple
-          onClick={() => {
-            setSelectedIndex(index);
-            setCurrentComponent("button");
-            navigate(route);
-          }}
+        <Box sx={{ color: "#6997d5", width: 20, height: 20, mr: 0.4, ml: -1 }}>
+          <VscMarkdown />
+        </Box>
+        {name}
+        <Box
+          component={Paper}
           sx={{
-            borderRadius: 0,
-            px: 2,
-            textTransform: "none",
-            backgroundColor: renderButtonBgColor(index),
-            color: renderButtonColor(index),
-            "&.MuiButtonBase-root:hover": {
-              bgcolor: renderButtonBgColor(index),
+            ml: 1,
+            mr: -1,
+            backgroundColor: getBgColor(index),
+            color: isDark ? (selectedIndex === index ? "white" : "#2d2d2d") : (selectedIndex === index ? "#72736d" : "#ececec"),
+            "&.MuiPaper-root:hover": {
+              bgcolor: getCloseHoverBg(index),
+              color: getCloseHoverColor(index),
             },
+            width: 20,
+            height: 20,
             transition: "none",
-            pb: 0.2,
+          }}
+          elevation={0}
+          onClick={(e) => {
+            e.stopPropagation();
+            setVisiblePageIndexs(visiblePageIndexs.filter((x) => x !== index));
           }}
         >
-          <Box
-            sx={{ color: "#6997d5", width: 20, height: 20, mr: 0.4, ml: -1 }}
-          >
-            <VscMarkdown />
-          </Box>
-          {name}
-          <Box
-            component={Paper}
-            sx={{
-              ml: 1,
-              mr: -1,
-              backgroundColor: renderCloseButtonBgColor(index),
-              color: renderCloseButtonColor(index),
-              "&.MuiPaper-root:hover": {
-                bgcolor: renderCloseButtonHoverBgColor(index),
-                color: renderCloseButtonHoverColor(index),
-              },
-              width: 20,
-              height: 20,
-              transition: "none",
-            }}
-            elevation={0}
-            onClick={(e) => {
-              e.stopPropagation();
-              setVisiblePageIndexs(
-                visiblePageIndexs.filter((x) => x !== index)
-              );
-            }}
-          >
-            <VscChromeClose />
-          </Box>
-        </Button>
-      </Box>
-    );
-  }
+          <VscChromeClose />
+        </Box>
+      </Button>
+    </Box>
+  );
 
   return (
-    React.createElement(Container, {
-      maxWidth: false,
-      disableGutters: true,
-      sx: {
+    <Container
+      maxWidth={false}
+      disableGutters
+      sx={{
         display: "inline-block",
         overflowX: "auto",
         overflowY: "hidden",
         whiteSpace: "nowrap",
-        backgroundColor: theme.palette.mode === "dark" ? "#252527" : "#f3f3f3",
-      }
-    },
-      pages.map(({ index, name, route }) =>
-        renderPageButton(index, name, route)
-      )
-    )
+        backgroundColor: isDark ? "#252527" : "#f3f3f3",
+      }}
+    >
+      {pages.map(({ index, name, route }) => renderPageButton(index, name, route))}
+    </Container>
   );
 }

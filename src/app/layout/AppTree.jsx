@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -17,57 +17,50 @@ export default function AppTree({
   pages,
   selectedIndex,
   setSelectedIndex,
-  currentComponent,
   setCurrentComponent,
   visiblePageIndexs,
   setVisiblePageIndexs,
 }) {
   const navigate = useNavigate();
   const theme = useTheme();
-  let { pathname } = useLocation();
-  const [open, setOpen] = React.useState(true);
+  const { pathname } = useLocation();
+  const [open, setOpen] = useState(true);
+  const isDark = theme.palette.mode === "dark";
 
   const page = pages.find((x) => x.route === pathname);
 
   useEffect(() => {
-    if (page) {
-      setSelectedIndex(page.index);
-    }
+    if (page) setSelectedIndex(page.index);
   }, [page, setSelectedIndex]);
 
-  function renderTreeItemBgColor(index) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "rgba(144,202,249,0.16)" : "transparent";
-    } else {
-      return selectedIndex === index ? "#295fbf" : "transparent";
-    }
-  }
+  const getBgColor = (index) => {
+    if (isDark) return selectedIndex === index ? "rgba(144,202,249,0.16)" : "transparent";
+    return selectedIndex === index ? "#295fbf" : "transparent";
+  };
 
-  function renderTreeItemColor(index) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index && currentComponent === "tree"
-        ? "white"
-        : "#bdc3cf";
-    } else {
-      return selectedIndex === index ? "#e2ffff" : "#69665f";
-    }
-  }
+  const getTextColor = (index) => {
+    if (isDark) return selectedIndex === index ? "white" : "#bdc3cf";
+    return selectedIndex === index ? "#e2ffff" : "#69665f";
+  };
 
   return (
     <Box sx={{ width: "100%", maxWidth: 220 }}>
       <List component="nav" dense>
         <ListItemButton onClick={() => setOpen(!open)} sx={{ py: 0.5 }}>
           <ListItemIcon sx={{ minWidth: 28 }}>
-            {open ? <FolderOpenIcon sx={{ fontSize: 18, color: "#dcb67a" }} /> : <FolderIcon sx={{ fontSize: 18, color: "#dcb67a" }} />}
+            {open ? 
+              <FolderOpenIcon sx={{ fontSize: 18, color: "#dcb67a" }} /> : 
+              <FolderIcon sx={{ fontSize: 18, color: "#dcb67a" }} />
+            }
           </ListItemIcon>
           <ListItemText 
             primary="pages" 
-            primaryTypographyProps={{ 
-              fontSize: 13, 
-              color: "#bdc3cf" 
-            }} 
+            primaryTypographyProps={{ fontSize: 13, color: "#bdc3cf" }} 
           />
-          {open ? <ExpandLess sx={{ color: "#bdc3cf", fontSize: 18 }} /> : <ExpandMore sx={{ color: "#bdc3cf", fontSize: 18 }} />}
+          {open ? 
+            <ExpandLess sx={{ color: "#bdc3cf", fontSize: 18 }} /> : 
+            <ExpandMore sx={{ color: "#bdc3cf", fontSize: 18 }} />
+          }
         </ListItemButton>
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding dense>
@@ -77,16 +70,15 @@ export default function AppTree({
                 sx={{ 
                   pl: 4, 
                   py: 0.25,
-                  backgroundColor: renderTreeItemBgColor(index),
+                  backgroundColor: getBgColor(index),
                   "&:hover": {
-                    backgroundColor: theme.palette.mode === "dark" ? "rgba(144,202,249,0.08)" : "#e0e0e0",
+                    backgroundColor: isDark ? "rgba(144,202,249,0.08)" : "#e0e0e0",
                   }
                 }}
                 selected={selectedIndex === index}
                 onClick={() => {
                   if (!visiblePageIndexs.includes(index)) {
-                    const newIndexs = [...visiblePageIndexs, index];
-                    setVisiblePageIndexs(newIndexs);
+                    setVisiblePageIndexs([...visiblePageIndexs, index]);
                   }
                   navigate(route);
                   setSelectedIndex(index);
@@ -98,10 +90,7 @@ export default function AppTree({
                 </ListItemIcon>
                 <ListItemText 
                   primary={name} 
-                  primaryTypographyProps={{ 
-                    fontSize: 13, 
-                    color: renderTreeItemColor(index)
-                  }} 
+                  primaryTypographyProps={{ fontSize: 13, color: getTextColor(index) }} 
                 />
               </ListItemButton>
             ))}
