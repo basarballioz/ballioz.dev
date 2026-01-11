@@ -98,17 +98,13 @@ const MarkdownH1 = (props) => (
     <Typography variant="h1" sx={{ fontSize: "2em", display: "block", marginBlockStart: "0.67em", marginBlockEnd: "0.3em", fontWeight: "bold", lineHeight: 1.25 }}>
       {props.children}
     </Typography>
-    <MarkdownDivider />
   </>
 );
 
 const MarkdownH2 = (props) => (
-  <>
-    <Typography variant="h2" sx={{ fontSize: "1.5em", display: "block", marginBlockStart: "0.83em", marginBlockEnd: "0.3em", fontWeight: "bold", lineHeight: 1.25 }}>
-      {props.children}
-    </Typography>
-    <MarkdownDivider />
-  </>
+  <Typography variant="h2" sx={{ fontSize: "1.5em", display: "block", marginBlockStart: "0.83em", marginBlockEnd: "0.3em", fontWeight: "bold", lineHeight: 1.25 }}>
+    {props.children}
+  </Typography>
 );
 
 const MarkdownBlockquote = (props) => (

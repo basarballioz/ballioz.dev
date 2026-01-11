@@ -10,14 +10,12 @@ A Mid-level Frontend Developer with hands-on experience in the MERN Stack, focus
   <a href="https://www.linkedin.com/in/basarballioz/" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
-
-  <p align="center">
   <a href="https://github.com/basarballioz?tab=repositories" target="_blank">
     <img src="https://img.shields.io/badge/View_All_24_Repositories-100000?style=for-the-badge&logo=github&logoColor=white" alt="View All Repos" />
   </a>
-</p>
 
 ---
+
 # Tech Stack
 
 #### Frontend
@@ -32,19 +30,15 @@ A Mid-level Frontend Developer with hands-on experience in the MERN Stack, focus
   <img src="https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white" alt="Cypress" />
 </p>
 
----
-
-#### Backend & Database
+#### Backend & DB
 
 <p align="left">
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
   <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS" />
+  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=google-cloud&logoColor=white" alt="AWS" />
   <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" alt="GCP" />
 </p>
-
----
 
 #### Cybersecurity & DevOps
 
@@ -58,7 +52,7 @@ A Mid-level Frontend Developer with hands-on experience in the MERN Stack, focus
 
 ---
 
-## Work Experience
+# Work Experience
 
 ## Decathlon Türkiye
 
@@ -79,6 +73,8 @@ A Mid-level Frontend Developer with hands-on experience in the MERN Stack, focus
 - Developing Decathlon Turkey landing pages according to designs created by UI/UX designer
 - Responsive web design and deployment processes to test/production environments
 
+---
+
 ## Privia Security
 
 **Frontend Developer Intern** _(Jul 2021 - Aug 2021)_
@@ -87,9 +83,13 @@ A Mid-level Frontend Developer with hands-on experience in the MERN Stack, focus
 - Collaborative work on Git, GitLab and managing CI/CD processes
 - **Technologies:** React.js, JavaScript
 
+---
+
 ## Fibabanka
 
 **DevOps Engineer Intern** _(Apr 2021 - Jun 2021)_
+
+---
 
 ## LTS Bilişim Teknolojileri
 
