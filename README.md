@@ -1,14 +1,6 @@
-<div align="center">
-
 # ballioz.dev
 
 A developer portfolio built with React, featuring a VS Code-inspired user interface.
-
-[Live Demo](https://ballioz.dev)
-
-</div>
-
----
 
 ## Overview
 
@@ -38,11 +30,4 @@ Development server runs at `http://localhost:3000`
 ```bash
 # Production build
 npm run build
-
-# Deploy to GitHub Pages
-npm run deploy
 ```
-
-## License
-
-MIT
