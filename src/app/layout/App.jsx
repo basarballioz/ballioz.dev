@@ -27,9 +27,13 @@ function initVisiblePageIndexs(pages) {
   return tabs;
 }
 
+function isDesktop() {
+  return window.innerWidth >= 768;
+}
+
 export default function App() {
   const navigate = useNavigate();
-  const [expanded, setExpanded] = useState(isBrowser);
+  const [expanded, setExpanded] = useState(isDesktop());
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [currentComponent, setCurrentComponent] = useState("");
   const [visiblePageIndexs, setVisiblePageIndexs] = useState(initVisiblePageIndexs(pages));
@@ -68,6 +72,16 @@ export default function App() {
     const currentTheme = localStorage.getItem("theme");
     if (!currentTheme) setDarkMode(true);
     else setDarkMode(currentTheme === "dark");
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const shouldBeExpanded = isDesktop();
+      setExpanded(shouldBeExpanded);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const deletedIndex = visiblePages.find((x) => !visiblePageIndexs.includes(x.index))?.index;
