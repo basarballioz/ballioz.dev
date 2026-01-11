@@ -18,7 +18,7 @@ function Home({ setSelectedIndex }) {
 
   useEffect(() => {
     setSelectedIndex(-1);
-    document.title = process.env.REACT_APP_TITLE_NAME;
+    document.title = "Başar Ballıöz - Home";
   }, [setSelectedIndex, pathname]);
 
   return (
