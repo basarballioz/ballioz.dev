@@ -1,12 +1,12 @@
-# 👋🏻 Hi, I'm Başar Ballıöz
+# Hi, I'm Başar Ballıöz 👋🏻 
 
 ## Mid. Frontend Developer [@Decathlon Türkiye](https://decathlon.com.tr/)
 
-💡 Passionate about building scalable web apps, exploring cybersecurity, and growing into a Fullstack Engineer. Currently working with modern frontend stacks and backend integrations.
+Passionate about building scalable web apps, exploring cybersecurity, and growing into a Fullstack Engineer. Currently working with modern frontend stacks and backend integrations.
 
 <p align="center">
   <img src="https://img.shields.io/github/followers/basarballioz?label=Followers&style=social" alt="followers" />
-  <img src="https://img.shields.io/badge/Focus-Fullstack%20Development-brightgreen" alt="focus" />
+  <img src="https://img.shields.io/badge/Focus-Fullstack%20Development-bright green" alt="focus" />
 </p>
 <p align="center">
   <a href="mailto:balliozbasar@gmail.com">
@@ -22,9 +22,9 @@
 
 ---
 
-## 🧠 Tech Stack
+## Tech Stack
 
-### 💻 Frontend
+### Frontend
 
 <p align="left">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
@@ -38,7 +38,7 @@
 
 ---
 
-### ⚙️ Backend & Database
+### Backend & Database
 
 <p align="left">
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
@@ -50,7 +50,7 @@
 
 ---
 
-### 🔐 Cybersecurity & DevOps
+### Cybersecurity & DevOps
 
 <p align="left">
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
@@ -62,7 +62,7 @@
 
 ---
 
-## 💼 Work Experience
+## Work Experience
 
 ### Decathlon Türkiye
 
@@ -97,7 +97,7 @@
 
 ---
 
-## 🎓 Education
+## Education
 
 **Kadir Has University** _(2019-2022)_
 
@@ -118,16 +118,16 @@
 
 ---
 
-## 🏆 GitHub Stats & Achievements
+## GitHub Stats & Achievements
 
 <p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=basarballioz&theme=radical&hide_border=true" alt="GitHub Streak" />
 </p>
 
-## 📚 Current Focus
+## Current Focus
 
-- 🌍 Transitioning into **Fullstack Development**
-- 🧠 Learning **Web Application Security & Ethical Hacking**
-- ☁️ Mastering **AWS and scalable cloud architectures**
-- 🔐 Exploring **Zero Trust Security** principles
-- 🎯 Contributing to **Open Source** projects
+- Transitioning into **Fullstack Development**
+- Learning **Web Application Security & Ethical Hacking**
+- Mastering **AWS and scalable cloud architectures**
+- Exploring **Zero Trust Security** principles
+- Contributing to **Open Source** projects
