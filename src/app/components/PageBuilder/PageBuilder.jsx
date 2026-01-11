@@ -151,7 +151,7 @@ function PageBuilder({ path }) {
 
   useEffect(() => {
     const title = pathname.substring(1).charAt(0).toUpperCase() + pathname.substring(2);
-    document.title = `${process.env.REACT_APP_TITLE_NAME} | ${title}`;
+    document.title = `Başar Ballıöz | ${title}`;
   }, [pathname]);
 
   return (
