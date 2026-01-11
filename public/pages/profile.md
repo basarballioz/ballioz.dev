@@ -1,30 +1,26 @@
-# Hi, I'm Başar Ballıöz 👋🏻 
+# Hi, I'm Başar Ballıöz 👋🏻
 
-## Mid. Frontend Developer [@Decathlon Türkiye](https://decathlon.com.tr/)
+## Mid. Frontend Developer [@Decathlon Türkiye](https://decathlon.com.tr/) | MERN Stack | Next.js & React | E-commerce & SaaS
 
-Passionate about building scalable web apps, exploring cybersecurity, and growing into a Fullstack Engineer. Currently working with modern frontend stacks and backend integrations.
+A Mid-level Frontend Developer with hands-on experience in the MERN Stack, focusing on building modern web applications using Next.js and React. Actively involved in developing scalable, high performance, and user-centric interfaces for E-commerce and SaaS platforms, with a strong emphasis on clean code, maintainability, and seamless user experience.
 
-<p align="center">
-  <img src="https://img.shields.io/github/followers/basarballioz?label=Followers&style=social" alt="followers" />
-  <img src="https://img.shields.io/badge/Focus-Fullstack%20Development-bright green" alt="focus" />
-</p>
-<p align="center">
   <a href="mailto:balliozbasar@gmail.com">
     <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
   </a>
   <a href="https://www.linkedin.com/in/basarballioz/" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
-  <a href="https://github.com/basarballioz" target="_blank">
-    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+
+  <p align="center">
+  <a href="https://github.com/basarballioz?tab=repositories" target="_blank">
+    <img src="https://img.shields.io/badge/View_All_24_Repositories-100000?style=for-the-badge&logo=github&logoColor=white" alt="View All Repos" />
   </a>
 </p>
 
 ---
+# Tech Stack
 
-## Tech Stack
-
-### Frontend
+#### Frontend
 
 <p align="left">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
@@ -38,7 +34,7 @@ Passionate about building scalable web apps, exploring cybersecurity, and growin
 
 ---
 
-### Backend & Database
+#### Backend & Database
 
 <p align="left">
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
@@ -50,7 +46,7 @@ Passionate about building scalable web apps, exploring cybersecurity, and growin
 
 ---
 
-### Cybersecurity & DevOps
+#### Cybersecurity & DevOps
 
 <p align="left">
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
@@ -64,7 +60,7 @@ Passionate about building scalable web apps, exploring cybersecurity, and growin
 
 ## Work Experience
 
-### Decathlon Türkiye
+## Decathlon Türkiye
 
 **Mid. Frontend Developer** _(Mar 2024 - Present)_
 
@@ -83,7 +79,7 @@ Passionate about building scalable web apps, exploring cybersecurity, and growin
 - Developing Decathlon Turkey landing pages according to designs created by UI/UX designer
 - Responsive web design and deployment processes to test/production environments
 
-### Privia Security
+## Privia Security
 
 **Frontend Developer Intern** _(Jul 2021 - Aug 2021)_
 
@@ -91,9 +87,17 @@ Passionate about building scalable web apps, exploring cybersecurity, and growin
 - Collaborative work on Git, GitLab and managing CI/CD processes
 - **Technologies:** React.js, JavaScript
 
-### Fibabanka
+## Fibabanka
 
 **DevOps Engineer Intern** _(Apr 2021 - Jun 2021)_
+
+## LTS Bilişim Teknolojileri
+
+**Backend Developer Intern** _(Jul 2020 - Aug 2020)_
+
+- Contributed to backend web development projects and supported the IT systems and Level 2 Support team during a summer internship
+- Built a dynamic dashboard system with PHP (MVC) and MySQL, implementing a full authentication system (login/register) to manage user access securely
+- Assisted with network device installations and configurations, ensuring reliable connectivity and smooth IT operations
 
 ---
 
@@ -109,20 +113,6 @@ Passionate about building scalable web apps, exploring cybersecurity, and growin
 - **B.Sc.** in Management Information Systems (Transfer Student)
 
 ---
-
-<p align="center">
-  <a href="https://github.com/basarballioz?tab=repositories" target="_blank">
-    <img src="https://img.shields.io/badge/View_All_24_Repositories-100000?style=for-the-badge&logo=github&logoColor=white" alt="View All Repos" />
-  </a>
-</p>
-
----
-
-## GitHub Stats & Achievements
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=basarballioz&theme=radical&hide_border=true" alt="GitHub Streak" />
-</p>
 
 ## Current Focus
 
